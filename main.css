@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Playfair Display', serif;
+    color: #2b2b2b;
+    background: #f6f4f3;
+    overflow-x: hidden;
+}
+
+
+.ambient {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.7), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(230,220,215,0.6), transparent 45%);
+    animation: float 18s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.poem {
+    background: rgba(255,255,255,0.92);
+    border-radius: 22px;
+    padding: 60px 55px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    animation: appear 1.3s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin-bottom: 45px;
+    color: #4a3530;
+}
+
+
+p {
+    max-width: 520px;   
+    margin: 0 auto 30px;
+    font-size: 1.25rem;
+    line-height: 1.95;
+    text-align: left;         
+    white-space: pre-line;
+    opacity: 0;
+    animation: textIn 0.9s ease forwards;
+}
+
+/* поява рядків */
+p:nth-of-type(1) { animation-delay: .2s; }
+p:nth-of-type(2) { animation-delay: .4s; }
+p:nth-of-type(3) { animation-delay: .6s; }
+p:nth-of-type(4) { animation-delay: .8s; }
+p:nth-of-type(5) { animation-delay: 1s; }
+p:nth-of-type(6) { animation-delay: 1.2s; }
+p:nth-of-type(7) { animation-delay: 1.4s; }
+p:nth-of-type(8) { animation-delay: 1.6s; }
+
+@keyframes textIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.final {
+    font-style: italic;
+    text-align: center;
+    margin-top: 45px;
+    color: #3a2a26;
+}
+
+@media (max-width: 600px) {
+    .poem {
+        padding: 40px 25px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        max-width: 100%;
+        font-size: 1.05rem;
+        padding: 0 5px;
+    }
+}
